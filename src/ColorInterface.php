@@ -29,7 +29,7 @@ use       matthieumastadenis\couleur\colors\XyzD65;
  */
 interface ColorInterface
 extends   \Stringable {
-    
+
     /* #region Magic Methods */
 
     /**
@@ -45,7 +45,7 @@ extends   \Stringable {
     /* #endregion */
 
     /* #region Public Static Methods */
-    
+
     /**
      * Returns an array containing all supported aliases for the ColorSpace of the current color.
      *
@@ -96,7 +96,7 @@ extends   \Stringable {
     public function stringify(
 
     ) :string;
-    
+
     /**
      * Returns a new ColorInterface instance corresponding to the current color converted into the $to color space.
      *

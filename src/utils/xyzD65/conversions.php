@@ -139,7 +139,7 @@ function toOkLab(
                 [  0.0259040371,  0.7827717662, -0.8086757660 ],
             ],
             b : \array_map(
-                callback : fn ($v) => \pow($v, 1/3),
+                callback : fn ($v) => $v ** (1 / 3),
                 array    : utils\multiplyMatrices(
                     a : [
                         [ 0.8190224432164319,   0.3619062562801221,  -0.12887378261216414 ],

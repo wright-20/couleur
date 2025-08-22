@@ -12,7 +12,7 @@ use       matthieumastadenis\couleur\exceptions\UnsupportedCssColor;
  * It can be converted to RGB or Hexadecimal RGB coordinates, or directly to an instance of colors\Rgb or colors\HexRgb.
  */
 enum CssColor {
-    
+
     /* #region Cases */
 
     case aliceblue;
@@ -165,7 +165,7 @@ enum CssColor {
     case yellowgreen;
 
     /* #endregion */
-    
+
     /* #region Public Static Methods */
 
     /**
@@ -327,7 +327,7 @@ enum CssColor {
             static::yellowgreen->name          => [ '9A', 'CD', '32' ],
         ];
     }
-    
+
     /**
      * Returns an array containing RGB coordinates for all supported CSS colors.
      *
@@ -568,7 +568,7 @@ enum CssColor {
         $array     = [ $red, $green, $blue ];
         $distances = [];
         $value     = null;
-        
+
         foreach (static::allHexRgbCoordinates() as $color => $values) {
             if ($array === $values) {
                 $value = $color;
@@ -579,19 +579,19 @@ enum CssColor {
                 continue;
             }
 
-            $distances[$color] = \abs(\hexDec($values[0]) - \hexDec($red))
-                + \abs(\hexDec($values[1]) - \hexDec($green))
-                + \abs(\hexDec($values[2]) - \hexDec($blue))
+            $distances[$color] = \abs(\hexDec((string) $values[0]) - \hexDec($red))
+                + \abs(\hexDec((string) $values[1]) - \hexDec($green))
+                + \abs(\hexDec((string) $values[2]) - \hexDec($blue))
             ;
         }
-        
+
         if (\count($distances)) {
             $value ??= \array_search(
                 needle   : \min($distances),
                 haystack : $distances,
             );
         }
-        
+
         if (!$value) {
             $value = '#'.\implode('', $array);
         }
@@ -628,7 +628,7 @@ enum CssColor {
         $array     = [ $red, $green, $blue ];
         $distances = [];
         $value     = null;
-        
+
         foreach (static::allRgbCoordinates() as $color => $values) {
             if ($array === $values) {
                 $value = $color;
@@ -644,14 +644,14 @@ enum CssColor {
                 + \abs($values[2] - $blue)
             ;
         }
-        
+
         if (\count($distances)) {
             $value ??= \array_search(
                 needle   : \min($distances),
                 haystack : $distances,
             );
         }
-        
+
         if (!$value) {
             $value = 'rgb('.\implode(',', $array).')';
         }
@@ -674,7 +674,7 @@ enum CssColor {
     }
 
     /* #endregion */
-    
+
     /* #region Public Methods */
 
     /**
@@ -716,7 +716,7 @@ enum CssColor {
             throw     : $throw,
         );
     }
-    
+
     /**
      * Return an array containing Hexadecimal RGB coordinates corresponding to the current CssColor.
      *
@@ -727,7 +727,7 @@ enum CssColor {
     ) :array {
         return static::allHexRgbCoordinates()[$this->name];
     }
-    
+
     /**
      * Returns a string corresponding to the current CssColor exprimed in Hexadecimal RGB according to the CSS syntax.
      *
@@ -745,7 +745,7 @@ enum CssColor {
         bool      $sharp     = true,
     ) :string {
         $values = $this->toHexRgbCoordinates();
-        
+
         return utils\hexRgb\stringify(
             red       : $values[0],
             green     : $values[1],
@@ -777,7 +777,7 @@ enum CssColor {
             throw     : $throw,
         );
     }
-    
+
     /**
      * Return an array containing RGB coordinates corresponding to the current CssColor.
      *
@@ -788,7 +788,7 @@ enum CssColor {
     ) :array {
         return static::allRgbCoordinates()[$this->name];
     }
-    
+
     /**
      * Returns a string corresponding to the current CssColor exprimed in RGB according to the CSS syntax.
      *

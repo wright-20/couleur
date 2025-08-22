@@ -11,14 +11,14 @@ use       matthieumastadenis\couleur\utils;
  * All supported constants are in uppercase and prefixed with 'COULEUR_'.
  */
 enum Constant :int {
-    
+
     /* #region Cases */
 
     case LEGACY    = 0;
     case PRECISION = 9;
 
     /* #endregion */
-    
+
     /* #region Public Methods */
 
     /**

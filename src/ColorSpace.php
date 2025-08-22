@@ -28,7 +28,7 @@ use       matthieumastadenis\couleur\exceptions\UnsupportedColorSpace;
  * Provides access to dedicated functions (clean(), from(), stringify(), verify()).
  */
 enum ColorSpace :string {
-    
+
     /* #region Cases */
 
     case Css         = Css::class;
@@ -50,23 +50,23 @@ enum ColorSpace :string {
     case XyzD65      = XyzD65::class;
 
     /* #endregion */
-    
+
     /* #region Public Static Methods */
-    
+
     /**
      * Returns an array containing all supported aliases and the corresponding ColorSpace instances.
      *
      * @return array
      */
     public static function allAliases(
-        
+
     ) :array {
         $aliases = [];
 
         foreach (static::cases() as $space) {
             $aliases[\strtolower($space->name)] = $space;
 
-            foreach ($space->aliases(true) as $alias) {
+            foreach ($space->aliases() as $alias) {
                 $aliases[(string) $alias] = $space;
             }
         }
@@ -94,7 +94,7 @@ enum ColorSpace :string {
         $lcName  = \strtolower((string) $name);
         $throw ??= !$fallback;
 
-        foreach (static::allAliases($throw) as $alias => $space) {
+        foreach (static::allAliases() as $alias => $space) {
             if ($lcName === \strtolower($alias)) {
                 return $space;
             }
@@ -107,7 +107,7 @@ enum ColorSpace :string {
     }
 
     /* #endregion */
-    
+
     /* #region Public Methods */
 
     /**
@@ -116,7 +116,7 @@ enum ColorSpace :string {
      * @return array
      */
     public function aliases(
-        
+
     ) :array {
         return ($this->value)::aliases();
     }

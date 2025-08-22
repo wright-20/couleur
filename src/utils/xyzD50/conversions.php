@@ -83,7 +83,7 @@ function toLab(
 
     $f = \array_map(
         fn ($v) => (($v > $a)
-            ? \pow($v, 1/3)
+            ? $v ** (1 / 3)
             : (($b * $v + 16) / 116)
         ),
         $xyz,

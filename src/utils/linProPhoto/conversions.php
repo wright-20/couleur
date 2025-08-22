@@ -140,7 +140,7 @@ function toProPhoto(
                     : 1;
 
                 return ($abs >= $et)
-                    ? $sign * \pow($abs, 1/1.8)
+                    ? $sign * $abs ** (1 / 1.8)
                     : 16 * $v
                 ;
             },

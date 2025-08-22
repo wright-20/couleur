@@ -29,7 +29,7 @@ use       matthieumastadenis\couleur\colors\XyzD65;
  * This class is abstract so it can not be instanciated directly. 
  * It is inherited by all classes in the matthieumastadenis\couleur\colors namespace.
  */
-abstract class Color {
+abstract class Color implements \Stringable {
 
     /* #region Magic Methods */
 
@@ -86,7 +86,7 @@ abstract class Color {
     ) :string {
         return \implode(', ', $this->coordinates());
     } 
-        
+
     /**
      * Returns a new ColorInterface instance corresponding to the current color converted into the $to color space.
      *

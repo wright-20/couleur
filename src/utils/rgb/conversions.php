@@ -163,7 +163,7 @@ function toLinRgb(
                 }
 
                 return (float) (
-                    $sign * \pow(($abs + 0.055) / 1.055, 2.4)
+                    $sign * (($abs + 0.055) / 1.055) ** 2.4
                 );
             },
             array : [ $red, $green, $blue ],

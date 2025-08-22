@@ -100,7 +100,7 @@ extends TestCase {
     public function test_fromHexRgb_returnsTheCssColorInstanceMatchingProvidedHexRgbCoordinates(
 
     ) :void {
-        foreach ($this::COLORS as $name => $data) {
+        foreach ($this::COLORS as $data) {
             $this->assertSame($data['case'], CssColor::fromHexRgb(... $data['hexRgb']));
         }
     }
@@ -108,7 +108,7 @@ extends TestCase {
     public function test_fromRgb_returnsTheCssColorInstanceMatchingProvidedRgbCoordinates(
 
     ) :void {
-        foreach ($this::COLORS as $name => $data) {
+        foreach ($this::COLORS as $data) {
             $this->assertSame($data['case'], CssColor::fromRgb(... $data['rgb']));
         }
     }
@@ -116,7 +116,7 @@ extends TestCase {
     public function test_toHexRgbCoordinates_returnsAnArrayOfHexRgbCoordinatesMatchingTheCurrentColor(
 
     ) :void {
-        foreach ($this::COLORS as $name => $data) {
+        foreach ($this::COLORS as $data) {
             $this->assertSame($data['hexRgb'], $data['case']->toHexRgbCoordinates());
         }
     }
@@ -124,7 +124,7 @@ extends TestCase {
     public function test_toRgbCoordinates_returnsAnArrayOfRgbCoordinatesMatchingTheCurrentColor(
 
     ) :void {
-        foreach ($this::COLORS as $name => $data) {
+        foreach ($this::COLORS as $data) {
             $this->assertSame($data['rgb'], $data['case']->toRgbCoordinates());
         }
     }

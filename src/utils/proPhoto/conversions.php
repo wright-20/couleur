@@ -106,7 +106,7 @@ function toLinProPhoto(
     
                 return ($abs <= $et)
                     ? $v / 16
-                    : $sign * \pow($abs, 1.8)
+                    : $sign * $abs ** 1.8
                 ;
             },
             array : [ $red, $green, $blue ],
